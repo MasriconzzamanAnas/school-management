@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+
+<h1> Total Student {{student|length}}</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Img</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    {% for i in student %}
+    <tbody>
+        <tr>
+            <td>{{i.id}}</td>
+            <td><img src="{{ i.image.url }}" alt="{{ i.name }}" width="50" height="50"></td>
+            <td>{{i.name}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.email}}</td>
+            <td><a href="{% url 'update_student' i.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_student' i.id %}" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+{% block title %}
+Student-list
+{% endblock %}

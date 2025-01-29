@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for item in img %}
+    <div class="col">
+        <div class="card h-80 w-60">
+            <img src="{{item.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">{{item.name}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated {{item.updated_at}} mins ago</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block title %} student-home {% endblock %}
